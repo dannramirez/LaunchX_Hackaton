@@ -6,6 +6,13 @@ const setupUserModel = require("./models/user");
 const setupVolunteerModel = require("./models/volunteer");
 const setupDatabaseModel = require("./utils/db");
 
+const setupDonation = require("./modelsService/donation");
+const setupReport = require("./modelsService/report");
+const setupRole = require("./modelsService/roles");
+const setupUser = require("./modelsService/user");
+const setupVolunteer = require("./modelsService/volunteer");
+
+
 const setup = async () => {
 
     const config = {
@@ -16,7 +23,6 @@ const setup = async () => {
         dialect: "postgres",
         port: process.env.PORTDB,
         setup: process.env.STDB,
-        logging: true,
         pool: {
             max: 5,
             min: 0,
@@ -80,10 +86,39 @@ const setupTables = async (config) => {
 
     await sequelize.sync({
         force: true
-    }).then(() => {
-        console.log("Creando Base de Datos");
+    }).then(async () => {
+        await initial(RoleModel);
     });
 
+    const Donation = setupDonation(DonationModel, UserModel, ReportModel);
+    const Report = setupReport(ReportModel, UserModel);
+    const Role = setupRole(RoleModel);
+    const User = setupUser(UserModel,RoleModel);
+    const Volunteer = setupVolunteer(VolunteerModel, UserModel, ReportModel);
+
+
+    return {
+        Donation,
+        Report,
+        Role,
+        User,
+        Volunteer
+    };
+};
+
+const initial = async (RoleModel) => {
+    await RoleModel.create({
+        id: 1,
+        name: "user"
+    });
+    await RoleModel.create({
+        id: 2,
+        name: "organization"
+    });
+    await RoleModel.create({
+        id: 3,
+        name: "admin"
+    });
 };
 
 setup();
