@@ -46,12 +46,45 @@ describe("Test para userController", () => {
         expect(response.auth).toBe(true);         
     });
 
+    test("Test para crear un usuario en la base de datos", async () => {
+        const user1 = {
+            name: "Prueba12",
+            username: "Oceanauta12",
+            email: "test@te12st.com",
+            password: "prueba",
+            role: ["admin"]
+        };
+        const user2 = {
+            name: "Prueba13",
+            username: "Oceanauta13",
+            email: "test@te13st.com",
+            password: "prueba",
+            role: ["organization"]
+        };
+        const user3 = {
+            name: "Prueba14",
+            username: "Oceanauta14",
+            email: "test@te14st.com",
+            password: "prueba",
+            role: ["user"]
+        };
+
+        const User = services.User;
+        await User.createUser(user1);
+        await User.createUser(user2);
+        await User.createUser(user3);
+
+        expect(1).toBe(1);         
+            
+    });
+
 
     test("Test para devolver un todos los usuarios de la base de datos", async () => {
         const User = services.User;
         const response = await User.findAll();
-        expect(response[0].name).toBe("Prueba");         
-        expect(response[1].name).toBe("Prueba1");         
+        console.log(response);
+        expect(response[0].name).toBe("Prueba1");         
+        expect(response[1].name).toBe("Prueba12");         
     });
 
     
