@@ -4,7 +4,7 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "node ./lib/server.js",
+        "start": "node ./lib/app.js",
         "test": "node ./node_modules/jest/bin/jest --verbose --silent",
         "linter": "node ./node_modules/eslint/bin/eslint.js .",
         "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix"
