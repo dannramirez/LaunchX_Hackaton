@@ -1,49 +1,55 @@
-const setupDatabase = require("../utils/db");
-const Op = setupDatabase.Sequelize.Op;
+const { Op } = require("sequelize");
 
 function setupUser(UserModel, RoleModel) {
 
     async function createUser(user) {
-        const existingUser = await UserModel.findOne({
-            where: {
-                id: user.id
-            }
-        });
-
-        if (existingUser) {
-            return ({
-                error: "El usuario que intenta ingresar ya existe"
-            });
-        }
-
-        const result = await UserModel.create(user);
-        if (!result) {
-            return ({
-                error: "No se pudo crear el usuario"
-            });
-        }
-        const existingRole = await RoleModel.findAll({
-            where: {
-                name: {
-                    [Op.or]: user.role
+        try {
+            const existingUser = await UserModel.findOne({
+                where: {
+                    name: user.name
                 }
+            });
+
+            const existingUserName = await UserModel.findOne({
+                where: {
+                    username: user.username
+                }
+            });
+
+            const existingUserEmail = await UserModel.findOne({
+                where: {
+                    email: user.email
+                }
+            });
+
+            if (existingUser || existingUserName || existingUserEmail) {
+                return ({
+                    error: "El usuario que intenta ingresar ya existe"
+                });
             }
-        });
-
-        if (!existingRole) {
+        } catch (error) {
             return ({
-                error: "El rol no existe"
+                error: "El usuario que intenta ingresar ya existe, verifica que los datos sean correctos!"
             });
         }
 
-        const regiterUser= await user.setRoles(user.role);
-
-        if (!regiterUser) {
-            return ({
-                error: "No se pudo agregar el Rol al usuario"
+        try {
+            const UserObj = await UserModel.create(user);       
+            const [roleID] = await RoleModel.findAll({
+                where: {
+                    name: {
+                        [Op.or]: user.role
+                    }
+                }
             });
-        }
-        
+            await UserObj.addRole(roleID, { through: { selfGranted: false } });
+        } catch (error) {
+            console.log(error);
+            return ({
+                error: "No se pudo crear o asignar un tipo de usuario al usuario"
+            });
+        }   
+
         return ({
             message: "User was registered successfully!"
         });
