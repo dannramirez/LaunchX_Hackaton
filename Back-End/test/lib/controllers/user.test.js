@@ -27,14 +27,9 @@ describe("Test para userController", () => {
        
         const User = services.User;
 
-        try {
-            const response = await User.createUser(user);
-            expect(response).toStrictEqual({"message": "User was registered successfully!"});
+        const response = await User.createUser(user);
+        expect(response).toStrictEqual({"message": "User was registered successfully!"});
             
-        } catch (e) {
-            console.log(e);
-            return e;
-        }
     });
 
     test("Test para crear Iniciar Sesión con la base de datos", async () => {
@@ -48,12 +43,15 @@ describe("Test para userController", () => {
 
         const User = services.User;
 
-        try {
-            const response = await User.signin(user);
-            expect(response.auth).toBe(true);         
-        } catch (e) {
-            console.log(e);
-            return e;
-        }
+        const response = await User.signin(user);
+        expect(response.auth).toBe(true);         
+    });
+
+
+    test("Test para devolver un todos los usuarios de la base de datos", async () => {
+        const User = services.User;
+        const response = await User.findAll();
+        expect(response[0].name).toBe("Prueba");         
+        expect(response[1].name).toBe("Prueba1");         
     });
 });
