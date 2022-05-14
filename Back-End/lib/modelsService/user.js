@@ -88,13 +88,22 @@ function setupUser(UserModel, RoleModel) {
         }    
     }
     
-
     function findById(id) {
         return UserModel.findById(id);
     }
-
+    
     function findAll() {
         return UserModel.findAll({
+            include: [
+                {
+                    model: RoleModel,
+                    as: "roles",
+                    attributes: ["id", "name"],
+                    through: {
+                        attributes: [],
+                    }
+                },
+            ],
             raw: true
         });
     }
