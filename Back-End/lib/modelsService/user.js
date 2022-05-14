@@ -1,19 +1,21 @@
 const { Op } = require("sequelize");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const config  = require("./../utils/config");
 
 function setupUser(UserModel, RoleModel) {
 
     async function createUser(user) {
 
-        user.password = bcrypt.hashSync(user.password, 8);
         try {
             const existingUser = await UserModel.findOne({
                 where: {
                     name: user.name
                 }
             });
-
+            const salt = bcrypt.genSaltSync(10);
+            user.password = bcrypt.hashSync(user.password, salt);
+            
             const existingUserName = await UserModel.findOne({
                 where: {
                     username: user.username
@@ -59,6 +61,34 @@ function setupUser(UserModel, RoleModel) {
         });
     }
 
+    async function signin (user)  {
+
+        try {
+            const existingUser = await UserModel.findOne({
+                where: {
+                    email: user.email
+                },
+                raw:true
+            });
+            const passwordIsValid = bcrypt.compareSync(user.password, existingUser.password);
+            
+            if (!passwordIsValid) {
+                return ({ auth: false, accessToken: null, reason: "Password Incorrecto!" });
+            }else{
+                let token = jwt.sign({ id: user.id }, config.auth.secret, {
+                    expiresIn: 36000 // Expira en 1Hrs
+                });
+                return ({ auth: true, userID:existingUser.id,accessToken: token});
+            }
+        } catch (error) {
+            console.log(error);
+            return ({
+                error: "El usuario no existe!"
+            });
+        }    
+    }
+    
+
     function findById(id) {
         return UserModel.findById(id);
     }
@@ -82,6 +112,7 @@ function setupUser(UserModel, RoleModel) {
         findAll,
         UserModel,
         createUser,
+        signin,
         findByUsername
     };
 }
