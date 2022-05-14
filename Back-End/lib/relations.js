@@ -58,7 +58,7 @@ const setupTables = async (config) => {
     }
 
     const Donation = setupDonation(DonationModel, UserModel, ReportModel);
-    const Report = setupReport(ReportModel, UserModel);
+    const Report = setupReport(ReportModel, UserModel, DonationModel, VolunteerModel);
     const Role = setupRole(RoleModel);
     const User = setupUser(UserModel, RoleModel);
     const Volunteer = setupVolunteer(VolunteerModel, UserModel, ReportModel);
