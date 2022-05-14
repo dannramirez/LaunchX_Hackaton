@@ -92,6 +92,12 @@ describe("Test para userController", () => {
         expect(response[0].name).toBe("Prueba13");         
     });
 
+    test("Test para devolver un usuario a partir de su ID", async () => {
+        const User = services.User;
+        const response = await User.findAll();
+        const usuario = await User.findById(response[0].id);
+        expect(usuario.id).toBe(response[0].id);       
+    });
 
     
 });
