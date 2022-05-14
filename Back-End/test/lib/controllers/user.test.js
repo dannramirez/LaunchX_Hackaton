@@ -82,10 +82,16 @@ describe("Test para userController", () => {
     test("Test para devolver un todos los usuarios de la base de datos", async () => {
         const User = services.User;
         const response = await User.findAll();
-        console.log(response);
         expect(response[0].name).toBe("Prueba1");         
         expect(response[1].name).toBe("Prueba12");         
     });
+
+    test("Test para devolver un todos los usuarios tipo organización de la base de datos", async () => {
+        const User = services.User;
+        const response = await User.findAllOrganizations();
+        expect(response[0].name).toBe("Prueba13");         
+    });
+
 
     
 });
