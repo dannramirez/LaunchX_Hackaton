@@ -15,16 +15,15 @@ beforeAll(async () => {
 });
 
 describe("Test para userController", () => {
-    const user = {
-        name: "Prueba1",
-        username: "Oceanauta1",
-        email: "test@te1st.com",
-        password: "prueba",
-        role: ["admin"]
-    };
-
+  
     test("Test para crear un usuario en la base de datos", async () => {
-       
+        const user = {
+            name: "Prueba1",
+            username: "Oceanauta1",
+            email: "test@te1st.com",
+            password: "prueba",
+            role: ["admin"]
+        };
         const User = services.User;
 
         const response = await User.createUser(user);
@@ -54,4 +53,6 @@ describe("Test para userController", () => {
         expect(response[0].name).toBe("Prueba");         
         expect(response[1].name).toBe("Prueba1");         
     });
+
+    
 });
