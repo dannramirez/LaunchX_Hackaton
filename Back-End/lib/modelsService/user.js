@@ -89,7 +89,20 @@ function setupUser(UserModel, RoleModel) {
     }
     
     function findById(id) {
-        return UserModel.findById(id);
+        return UserModel.findOne({
+            where: { id: id },
+            include: [
+                {
+                    model: RoleModel,
+                    as: "roles",
+                    attributes: ["id", "name"],
+                    through: {
+                        attributes: [],
+                    }
+                },
+            ],
+            raw: true
+        });
     }
     
     function findAll() {
@@ -108,6 +121,24 @@ function setupUser(UserModel, RoleModel) {
         });
     }
 
+    function findAllOrganizations() {
+        return UserModel.findAll({
+            include: [
+                {
+                    model: RoleModel,
+                    as: "roles",
+                    attributes: ["id", "name"],
+                    through: {
+                        attributes: [],
+                    },
+                    where: { name: "organization" },
+                },
+            ],
+            raw: true
+        });
+    }
+
+
     function findByUsername(username) {
         return UserModel.findAll({
             where: {
@@ -122,6 +153,7 @@ function setupUser(UserModel, RoleModel) {
         UserModel,
         createUser,
         signin,
+        findAllOrganizations,
         findByUsername
     };
 }
