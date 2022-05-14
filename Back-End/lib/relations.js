@@ -10,6 +10,7 @@ const setupReport = require("./modelsService/report");
 const setupRole = require("./modelsService/roles");
 const setupUser = require("./modelsService/user");
 const setupVolunteer = require("./modelsService/volunteer");
+const bcrypt = require("bcryptjs");
 
 const setupTables = async (config) => {
 
@@ -88,7 +89,7 @@ const initial = async (RoleModel, UserModel) => {
         name: "Prueba",
         username: "Oceanauta",
         email: "test@test.com",
-        password: "prueba"
+        password: bcrypt.hashSync("prueba", 8)
     });
 };
 

@@ -1,8 +1,12 @@
 const { Op } = require("sequelize");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 function setupUser(UserModel, RoleModel) {
 
     async function createUser(user) {
+
+        user.password = bcrypt.hashSync(user.password, 8);
         try {
             const existingUser = await UserModel.findOne({
                 where: {
