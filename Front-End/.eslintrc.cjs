@@ -11,4 +11,10 @@ module.exports = {
   env: {
     "vue/setup-compiler-macros": true,
   },
+  "prettier/prettier": [
+    "error",
+    {
+      endOfLine: "auto",
+    },
+  ],
 };
