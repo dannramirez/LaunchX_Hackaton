@@ -194,9 +194,7 @@ describe("Test para donationController", () => {
         const User = services.User;
         const usuario = await User.findAll();
         const donativo = await Donation.findByUserId(usuario[0].id);
-        console.log(donativo);
         expect(donativo[0].userId).toBe(usuario[0].id);
     });
-    
 
 });
