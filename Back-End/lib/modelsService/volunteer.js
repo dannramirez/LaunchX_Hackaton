@@ -23,6 +23,11 @@ function setupVolunteer(VolunteerModel, UserModel, ReportModel) {
 
     function findAll() {
         return VolunteerModel.findAll({
+            include: [{
+                model: ReportModel
+            },{
+                model: UserModel
+            }],
             raw: true
         });
     }

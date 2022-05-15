@@ -109,9 +109,8 @@ app.post("/api/voluntarios", async (request, response) => {
 });
 
 app.get("/api/voluntarios", async (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
+    const voluntario = await Volunteer.findAll();
+    response.status(200).json(voluntario);   
 });
 
 app.get("/api/usuarios/voluntario/id", async (request, response) => {
