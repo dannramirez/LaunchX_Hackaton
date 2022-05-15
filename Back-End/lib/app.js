@@ -78,6 +78,42 @@ app.get("/api/reportes/:id", async (request, response) => {
 
 });
 
+app.post("/api/donaciones", async (request, response) => {
+    const donativo = await Donation.createDonation(request.body);
+    response.status(200).json(donativo);   
+});
+
+app.get("/api/donaciones", async (request, response) => {
+    const donativo = await Donation.findAll();
+    response.status(200).json(donativo);   
+});
+
+app.get("/api/donaciones/:id", async (request, response) => {
+    const donativo = await Donation.findById(request.params.id);
+    response.status(200).json(donativo);   
+});
+
+app.get("/api/donaciones/reporte/id", async (request, response) => {
+
+    response.json({
+        messae: "Oceanautas API -- Hackathon"
+    });
+});
+
+
+app.put("/api/donaciones/id", async (request, response) => {
+    response.json({
+        message: "Oceanautas API -- Hackathon"
+    });
+});
+
+app.delete("/api/donaciones/id", async (request, response) => {
+
+    response.json({
+        message: "Oceanautas API -- Hackathon"
+    });
+});
+
 app.get("/api/usuarios/donaciones/id", async (request, response) => {
     response.json({
         message: "Oceanautas API -- Hackathon"
@@ -97,48 +133,6 @@ app.put("/api/usuarios/id", async (request, response) => {
 });
 
 app.delete("/api/usuarios/id", async (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
-});
-
-
-app.get("/api/donaciones", async (request, response) => {
-
-    response.json({
-        mesage: "Oceanautas API -- Hackathon"
-    });
-});
-
-app.get("/api/donaciones/id", async (request, response) => {
-
-    response.json({
-        messge: "Oceanautas API -- Hackathon"
-    });
-});
-
-app.get("/api/donaciones/reporte/id", async (request, response) => {
-
-    response.json({
-        messae: "Oceanautas API -- Hackathon"
-    });
-});
-
-app.post("/api/donaciones", async (request, response) => {
-
-    response.json({
-        messag: "Oceanautas API -- Hackathon"
-    });
-});
-
-app.put("/api/donaciones/id", async (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
-});
-
-app.delete("/api/donaciones/id", async (request, response) => {
-
     response.json({
         message: "Oceanautas API -- Hackathon"
     });

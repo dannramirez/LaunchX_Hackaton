@@ -88,7 +88,7 @@ function setupUser(UserModel, RoleModel) {
                 let token = jwt.sign({ id: user.id }, config.auth.secret, {
                     expiresIn: 36000 // Expira en 1Hrs
                 });
-                return ({ auth: true, userID:existingUser.id,accessToken: token, type:existingUser['roles.name']});
+                return ({ auth: true, userID:existingUser.id,accessToken: token, type:existingUser["roles.name"]});
             }
         } catch (error) {
             console.log(error);

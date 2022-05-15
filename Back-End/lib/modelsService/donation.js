@@ -17,7 +17,12 @@ function setupDonation(DonationModel, UserModel, ReportModel) {
         return DonationModel.findOne({
             where: {
                 id: id
-            }
+            },
+            include: [{
+                model: ReportModel
+            },{
+                model: UserModel
+            }]
         });
     }
 
