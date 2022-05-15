@@ -2,7 +2,7 @@ function setupReport(ReportModel, UserModel, DonationModel, VolunteerModel) {
 
     async function createReport(report) {
         try {
-            const reporte = await ReportModel.create(report);
+            await ReportModel.create(report);
             return ({
                 message: "Report registered successfully!"
             });
