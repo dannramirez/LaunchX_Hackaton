@@ -134,44 +134,6 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Usuario",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/usuarios/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"usuarios",
-						"id"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Usuario",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/usuarios/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"usuarios",
-						"id"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Crear Reporte",
 			"request": {
 				"method": "POST",
@@ -230,44 +192,6 @@
 						"api",
 						"reportes",
 						"8fa50cd4-1784-407f-a1ed-d2b52232a936"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Actualizar Reporte",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/reportes/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"reportes",
-						"id"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Reporte",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/reportes/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"reportes",
-						"id"
 					]
 				}
 			},
@@ -378,44 +302,6 @@
 			"response": []
 		},
 		{
-			"name": "Actualizar Donativo",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/donaciones/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"donaciones",
-						"id"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Donativo",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/donaciones/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"donaciones",
-						"id"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Crear Voluntariado",
 			"request": {
 				"method": "POST",
@@ -495,25 +381,6 @@
 						"usuarios",
 						"voluntarios",
 						"581e0c78-9f8a-485b-b8de-2c32b383db42"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Voluntariado",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api/voluntarios/id",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"voluntarios",
-						"id"
 					]
 				}
 			},
