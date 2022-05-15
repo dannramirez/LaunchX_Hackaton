@@ -104,9 +104,8 @@ app.get("/api/usuarios/donaciones/:id", async (request, response) => {
 });
 
 app.post("/api/voluntarios", async (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
+    const voluntario = await Volunteer.createVolunteer(request.body);
+    response.status(200).json(voluntario);   
 });
 
 app.get("/api/voluntarios", async (request, response) => {
@@ -116,9 +115,8 @@ app.get("/api/voluntarios", async (request, response) => {
 });
 
 app.get("/api/usuarios/voluntario/id", async (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
+
+
 });
 
 app.put("/api/voluntarios/id", async (request, response) => {

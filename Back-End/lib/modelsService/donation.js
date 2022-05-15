@@ -28,6 +28,11 @@ function setupDonation(DonationModel, UserModel, ReportModel) {
 
     function findAll() {
         return DonationModel.findAll({
+            include: [{
+                model: ReportModel
+            },{
+                model: UserModel
+            }],
             raw: true
         });
     }
