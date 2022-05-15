@@ -113,15 +113,14 @@ app.get("/api/voluntarios", async (request, response) => {
     response.status(200).json(voluntario);   
 });
 
-app.get("/api/usuarios/voluntario/id", async (request, response) => {
-
-
+app.get("/api/usuarios/voluntario/:id", async (request, response) => {
+    const voluntario = await Volunteer.findByUserId(request.params.id);
+    response.status(200).json(voluntario);   
 });
 
-app.put("/api/voluntarios/id", async (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
+app.get("/api/usuarios/voluntarios/:id", async (request, response) => {
+    const voluntario = await Volunteer.findByReportId(request.params.id);
+    response.status(200).json(voluntario);   
 });
 
 const server = app.listen(port, () => {
