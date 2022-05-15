@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "e4550c87-48c0-4496-9308-e58824b0587e",
+		"name": "LaunchXHackaton",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Main API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar nuevo usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Oceanauta22\",\n    \"username\": \"Oceanauta22\",\n    \"email\": \"test22@oceanauta.com\",\n    \"password\": \"prueba\",\n    \"role\": [\"admin\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Iniciar Sesión",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test22@oceanauta.com\",\n    \"password\": \"prueba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener lista de Organizaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/organizaciones/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"organizaciones",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/2beef41e-d2d5-42ce-bbc3-d6fc1c4a8932",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"2beef41e-d2d5-42ce-bbc3-d6fc1c4a8932"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Reporte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\":\"Derrame Pacifico\",\n   \"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\n   \"lat\":\"50.5\",\n   \"lon\":\"50.5\",\n   \"type\":\"Derrame\",\n   \"userId\":\"91da19f5-ae96-4bb7-9f0e-61b79e92fff6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/reportes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"reportes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reportes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/reportes",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"reportes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reporte",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/reportes/8fa50cd4-1784-407f-a1ed-d2b52232a936",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"reportes",
+						"8fa50cd4-1784-407f-a1ed-d2b52232a936"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Reporte",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/reportes/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"reportes",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Reporte",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/reportes/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"reportes",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Donativo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"quantity\":500,\n   \"reportId\":\"8fa50cd4-1784-407f-a1ed-d2b52232a936\",\n   \"userId\":\"91da19f5-ae96-4bb7-9f0e-61b79e92fff6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/donaciones",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"donaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Donativos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/donaciones",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"donaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Donativo con id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/donaciones/e8533c89-913e-4b98-908c-7b58092d93f0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"donaciones",
+						"e8533c89-913e-4b98-908c-7b58092d93f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener lista de Donativos de un Reporte",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/donaciones/reporte/2024d3a2-5863-4427-bd67-5afde347b3ee",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"donaciones",
+						"reporte",
+						"2024d3a2-5863-4427-bd67-5afde347b3ee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Lista de donativos de un Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/donaciones/522d43a7-8379-42de-aef1-b65c79008e03",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"donaciones",
+						"522d43a7-8379-42de-aef1-b65c79008e03"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Donativo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/donaciones/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"donaciones",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Donativo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/donaciones/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"donaciones",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Voluntariado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"userId\":\"b47383b9-b456-432f-b714-5bb7ce0e040e\",\n   \"reportId\":\"d5152bd3-cf3a-4b0d-86da-1b5f80e9800b\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/voluntarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"voluntarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Voluntarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/voluntarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"voluntarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Lista de voluntariado de un reporte",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/voluntario/a6305b13-8bf0-444b-a8a9-387da1160d60",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"voluntario",
+						"a6305b13-8bf0-444b-a8a9-387da1160d60"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Lista de voluntariado de un Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/usuarios/voluntarios/581e0c78-9f8a-485b-b8de-2c32b383db42",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"voluntarios",
+						"581e0c78-9f8a-485b-b8de-2c32b383db42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Voluntariado",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/voluntarios/id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"voluntarios",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
