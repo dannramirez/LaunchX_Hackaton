@@ -79,28 +79,24 @@ app.get("/api/reportes/:id", async (request, response) => {
 });
 
 app.get("/api/usuarios/donaciones/id", async (request, response) => {
-
     response.json({
         message: "Oceanautas API -- Hackathon"
     });
 });
 
 app.get("/api/usuarios/voluntario/id", async (request, response) => {
-
     response.json({
         message: "Oceanautas API -- Hackathon"
     });
 });
 
 app.put("/api/usuarios/id", async (request, response) => {
-
     response.json({
         message: "Oceanautas API -- Hackathon"
     });
 });
 
 app.delete("/api/usuarios/id", async (request, response) => {
-
     response.json({
         message: "Oceanautas API -- Hackathon"
     });

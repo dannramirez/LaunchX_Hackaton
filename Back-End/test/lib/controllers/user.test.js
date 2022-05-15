@@ -131,7 +131,7 @@ describe("Test para reportController", () => {
         expect(response[0].name).toBe("Derrame Pacifico");
     });
 
-    test("Test para devolver un usuario a partir de su ID", async () => {
+    test("Test para devolver un reporte a partir de su ID", async () => {
         const Report = services.Report;
         const response = await Report.findAll();
 
