@@ -198,3 +198,54 @@ describe("Test para donationController", () => {
     });
 
 });
+
+
+describe("Test para volunterController", () => {
+
+    test("Test para registrar un voluntario en la base de datos", async () => {
+
+        const Volunteer = services.Volunteer;
+        const Report = services.Report;
+        const User = services.User;
+        const reporte = await Report.findAll();
+        const usuario = await User.findAll();
+
+        const voluntario = {
+            quantity: 500,
+            reportId: reporte[0].id,
+            userId: usuario[0].id
+        };
+        const voluntario2 = {
+            quantity: 501,
+            reportId: reporte[0].id,
+            userId: usuario[0].id
+        };
+        await Volunteer.createVolunteer(voluntario2);
+        const response = await Volunteer.createVolunteer(voluntario);
+        expect(response).toStrictEqual({
+            message: "Voluntario registrado exitosamente!"
+        });
+    });
+
+    test("Test para devolver todos los voluntarios de la base de datos", async () => {
+        const Volunteer = services.Volunteer;
+        const response = await Volunteer.findAll();
+        expect(response[0]).toHaveProperty("id");
+    });
+
+    test("Test para devolver una lista de voluntarios relacionada a un usuario a partir del ID de usuario", async () => {
+        const User = services.User;
+        const Volunteer = services.Volunteer;
+        const usuario = await User.findAll();
+        const voluntario = await Volunteer.findByUserId(usuario[0].id);
+        expect(voluntario[0].id).toBe(voluntario[0].id);
+    });
+
+    test("Test para devolver todos los donativos a partir del ID de un reporte", async () => {
+        const Volunteer = services.Volunteer;
+        const Report = services.Report;
+        const reporte = await Report.findAll();
+        const voluntario = await Volunteer.findByReportId(reporte[0].id);
+        expect(voluntario[0].id).toBe(voluntario[0].id);
+    });
+});
