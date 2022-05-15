@@ -160,7 +160,6 @@ function setupUser(UserModel, RoleModel) {
     return {
         findById,
         findAll,
-        UserModel,
         createUser,
         signin,
         findAllOrganizations,
