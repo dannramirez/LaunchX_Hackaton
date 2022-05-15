@@ -1,4 +1,17 @@
-function setupReport(ReportModel, UserModel){
+function setupReport(ReportModel, UserModel, DonationModel, VolunteerModel) {
+
+    async function createReport(report) {
+        try {
+            const reporte = await ReportModel.create(report);
+            return ({
+                message: "Report registered successfully!"
+            });
+        } catch (error) {
+            return ({
+                message: "Reporte no registrado!"
+            });
+        }
+    }
 
     function findById(id) {
         return ReportModel.findById(id);
@@ -11,6 +24,7 @@ function setupReport(ReportModel, UserModel){
     }
 
     return {
+        createReport,
         findById,
         findAll
     };
