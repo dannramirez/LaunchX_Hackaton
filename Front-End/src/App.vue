@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
+import MapComponent from "./components/MapComponent.vue";
 
 </script>
 
@@ -10,11 +10,11 @@ import HelloWorld from "./components/HelloWorld.vue";
       <img src="./assets/logo.jpg" alt="logo" class="logo">
     </div>
     <h1>Oceanautas</h1>
-    <div class="header_buttons">
-      <button class="button about">¿Quienes somos?</button>
+    <nav class="header_buttons">
       <button class="button login">Iniciar sesión</button>
+      <button class="button about">¿Quienes somos?</button>
       <button class="button singup">Registrate</button>
-    </div>
+    </nav>
   </header>
 
   <body>
@@ -28,7 +28,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
     <main>
       <div class="wrapper">
-        <HelloWorld />
+        <MapComponent />
       </div>
     </main>
 
