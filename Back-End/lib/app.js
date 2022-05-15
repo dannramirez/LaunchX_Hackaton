@@ -1,6 +1,30 @@
+require("dotenv").config(); // this is important!
 const express = require("express");
-const app = express();
+const asyncify = require("express-asyncify");
+const app = asyncify(express());
+
+const db = require("./relations");
+const config = require("./utils/config");
+let services, User, Report, Donation, Volunteer;
+
+
 app.use(express.json());
+app.use("*", async(req, res, next) => {
+    if (!services) {
+        try {
+            services = await db(config.db);
+        } catch (e) {
+            return next(e);
+        }
+
+        User=services.User;
+        Report=services.Report;
+        Donation=services.Donation;
+        Volunteer=services.Volunteer;
+    }
+    next();
+});
+
 
 const port = 3000;
 
@@ -10,23 +34,16 @@ app.get("/api/", (request, response) => {
     });
 });
 
-app.post("/api/", (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
+app.post("/api/register", async (request, response) => {
+    const res = await User.createUser(request.body);
+    response.status(200).json(res);   
 });
 
-app.post("/api/login", (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
+app.post("/api/login", async (request, response) => {
+    const res = await User.signin(request.body);
+    response.status(200).json(res);   
 });
 
-app.get("/api/register", (request, response) => {
-    response.json({
-        message: "Oceanautas API -- Hackathon"
-    });
-});
 
 app.get("/api/usuarios", (request, response) => {
     response.json({
