@@ -68,6 +68,16 @@ function setupUser(UserModel, RoleModel) {
                 where: {
                     email: user.email
                 },
+                include: [
+                    {
+                        model: RoleModel,
+                        as: "roles",
+                        attributes: ["id", "name"],
+                        through: {
+                            attributes: [],
+                        }
+                    },
+                ],
                 raw:true
             });
             const passwordIsValid = bcrypt.compareSync(user.password, existingUser.password);
@@ -78,7 +88,7 @@ function setupUser(UserModel, RoleModel) {
                 let token = jwt.sign({ id: user.id }, config.auth.secret, {
                     expiresIn: 36000 // Expira en 1Hrs
                 });
-                return ({ auth: true, userID:existingUser.id,accessToken: token});
+                return ({ auth: true, userID:existingUser.id,accessToken: token, type:existingUser['roles.name']});
             }
         } catch (error) {
             console.log(error);
