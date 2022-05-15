@@ -32,19 +32,29 @@ const setupTables = async (config) => {
     });
 
     UserModel.hasMany(DonationModel);
-    DonationModel.belongsTo(UserModel);
+    DonationModel.belongsTo(UserModel,{
+        foreignKey: "userId"
+    });
 
     UserModel.hasMany(ReportModel);
-    ReportModel.belongsTo(UserModel);
+    ReportModel.belongsTo(UserModel, {
+        foreignKey: "userId"
+    });
 
     UserModel.hasMany(VolunteerModel);
-    VolunteerModel.belongsTo(UserModel);
+    VolunteerModel.belongsTo(UserModel, {
+        foreignKey: "userId"
+    });
 
     ReportModel.hasMany(VolunteerModel);
-    VolunteerModel.belongsTo(ReportModel);
+    VolunteerModel.belongsTo(ReportModel, {
+        foreignKey: "reportId"
+    });
 
     ReportModel.hasMany(DonationModel);
-    DonationModel.belongsTo(ReportModel);
+    DonationModel.belongsTo(ReportModel, {
+        foreignKey: "reportId"
+    });
 
     await sequelize.authenticate();
 
