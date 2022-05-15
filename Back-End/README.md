@@ -92,6 +92,27 @@ SECRET=[contraseña para generar tokens de acceso]
 * Correr el archivo setup dentro de la carpeta de lib con el comando **node lib/setup.js** que instará la base de datos
 * Una vez ejecutado el script de setup se puede iniciar el servidor express con el comando **npm run start** y se podra utilzar el servicio. En la parte inferior esta descrito con mas detalle el funcionamiento de los endpoints
 
+# Pruebas
+
+* Para ejecutar las pruebas se debe crear un archivo llamado **.env** en /test/ con la siguiente estructura
+
+```
+DB=[Nombre de la base de datos]
+USDB=[Nombre del usuario de base de datos]
+PSDB=[Contraseña de la base de datos]
+HTDB=[Host de la base de datos]
+PORTDB=[Puerto de la base de datos]
+STDB=true
+SECRET=[contraseña para generar tokens de acceso]
+```
+
+* La informacion puesta aqui sobreescribira la base de datos por lo que es recomendable probar con una base de datos de prueba.
+* Para ejecutar las pruebas se ejecutará el comando **npm run test** que ejecutara un set de pruebas en jets
+
+
+![picture 3](../images/8c9f5a23a31ab8d9e6bdf173a425b9ef33d6ef57c80bb5daab4feb232dda1116.gif)  
+
+
 ## Dependencias utilizadas
 - **bcryptjs - V2.4.3**
 - **dotenv - V16.0.1**
