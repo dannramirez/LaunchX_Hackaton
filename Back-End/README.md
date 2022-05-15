@@ -6,7 +6,7 @@ Crear una API como solución tecnologica para incluir la tecnologia en los probl
 
 ## Propuesta:
 
-    Este repositorio es la implementacón de una API para llevar el control de reportes de contaminantes en los oceanos generados por organizaciones. Esto atraves de un modelo que contempla 3 tipos de usuario:
+Este repositorio es la implementacón de una API para llevar el control de reportes de contaminantes en los oceanos generados por organizaciones. Esto atraves de un modelo que contempla 3 tipos de usuario:
 
 ```mermaid
 graph LR
@@ -15,7 +15,7 @@ graph LR
         Administrador --> D(Usuario que administra la comunidad)
 ``` 
 
-    Los usuarios interactuan de tal forma que un usuario puede crear algun reporte de contaminacion y este se almacenara en la DB, mientras que algun otro usuario puede apoyar para erradicar el problema realizando una donación o siendo voluntario. 
+Los usuarios interactuan de tal forma que un usuario puede crear algun reporte de contaminacion y este se almacenara en la DB, mientras que algun otro usuario puede apoyar para erradicar el problema realizando una donación o siendo voluntario. 
 
 El diagrama entidad relacion del modelo entidad relacion propuesto que permita cumplir el requerimiento de interacción es el siguiente:
 
@@ -110,7 +110,7 @@ SECRET=[contraseña para generar tokens de acceso]
 
 ## End-Points Implementados
 
-    Para probar los endpoints implementados es necesario reemplazar **{{url}}** por el host correspondiente o crear una variable de entorno en postman para poder ejecutar de forma correcta
+Para probar los endpoints implementados es necesario reemplazar **{{url}}** por el host correspondiente o crear una variable de entorno en postman para poder ejecutar de forma correcta
 
 ![EndPoints](../images/c01028468160fe7dcaa183dd7789b450e03e17f813f8c2ba43031ad0b13f71e0.jpg)  
 
