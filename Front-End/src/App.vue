@@ -3,163 +3,115 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 </script>
 
-
 <template>
-  
-   
+
   <header>
-    <img src="./assets/logo.jpg" alt="logo" class="logo">
-    <div>  
-      <button class="quienes_somos">¿Quienes somos?</button>
-      <button class="iniciar_sesion">Iniciar sesión</button>
-      <button class="registrate">Registrate</button>
+    <div class="logo_container">
+      <img src="./assets/logo.jpg" alt="logo" class="logo">
     </div>
-     
-  
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <h1>Oceanautas</h1>
+    <div class="header_buttons">
+      <button class="button about">¿Quienes somos?</button>
+      <button class="button login">Iniciar sesión</button>
+      <button class="button singup">Registrate</button>
     </div>
   </header>
-  
-  <body>
-     <section>    
-      <div class="top"><p class="parrafo">Top</p> <button class="donadores">Donadores</button> <button class="voluntarios">Voluntarios</button></div> 
-     </section>
-    
-  </body> 
 
-  <main>
-    <TheWelcome />
-  </main>
+  <body>
+    <section class="top_container">
+      <p class="parrafo">Top</p>
+      <div class="parrafo_buttons">
+        <button class="donadores">Donadores</button>
+        <button class="voluntarios">Voluntarios</button>
+      </div>
+    </section>
+
+    <main>
+      <div class="wrapper">
+        <HelloWorld />
+      </div>
+    </main>
+
+  </body>
+
 </template>
 
 <style>
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+.logo_container {
+  margin: 1rem 1.4rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .logo {
-  position: relative;
-  top: -350px;
-  left: -200px;
-  display: block;
-  margin: 0 auto 2rem;
-  width: 200px;
-  height: 200px;
-  
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
-.quienes_somos {
-   position: relative;
-   left: 750px;
-   top: -350px;
-   font-weight: bold;
-   height: 50px;   
+.header_buttons {
+  display: flex;
 }
 
-.iniciar_sesion{
+.button {
   height: 50px;
-  width: 100px; 
+  margin: 0 .5rem;
+  border: none;
+}
+
+.top_container {
+  display: flex;
+  min-width: 20rem;
+  max-width: 35rem;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
-  left: 900px;
-  top: -400px;
+  top: 6rem;
+  left: 12rem;
+  padding: .5rem;
+  background-color: rgb(26, 166, 194);
+}
+
+.top_container button {
+  margin: 0 .4rem;
+}
+
+.parrafo {
+  margin: 0 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
-   
 }
 
-.registrate{
-  position: relative;
-  left: 1050px;
-  top: -450px;
-  font-weight: bold;
-  height: 50px;
+.parrafo_buttons {
+  padding: 0 1rem;
 }
 
-.top{
-  background-color: gray;
-  position: relative;
-  top: -100px;
-  left: -1360px;
-  width: 850px;
-  height: 100px;
-}
-
-p.parrafo{
-     position: relative;
-     left: 10px;
-     top: 33px;
-     font-weight: bold;   
-}
-
-.donadores{
-   position: relative;
-   left: 60px;
-   top: -20px;
-   height: 50px;
-   font-weight: bold; 
-}
-
-.voluntarios{
-  position: relative;
-  left: 80px;
-  top: -20px;
+.donadores {
   height: 50px;
   font-weight: bold;
 }
 
-body{
+.voluntarios {
+  height: 50px;
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  color: white;
   background-color: #0E6FA0;
+  font-family: 'Poppins', sans-serif;
 }
 
 header {
-  line-height: 1.5;
-}
-
-
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>
