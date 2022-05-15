@@ -26,6 +26,7 @@ const setup = async () => {
 };
 
 const handleErr = (err) => {
+    console.log(err);
     process.exit(1);
 };
 
