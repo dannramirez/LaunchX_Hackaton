@@ -1,4 +1,4 @@
-function setupReport(ReportModel, UserModel, DonationModel, VolunteerModel) {
+function setupReport(ReportModel) {
 
     async function createReport(report) {
         try {
