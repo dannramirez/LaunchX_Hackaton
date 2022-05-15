@@ -7,7 +7,6 @@ const setupDatabaseModel = require("./utils/db");
 
 const setupDonation = require("./modelsService/donation");
 const setupReport = require("./modelsService/report");
-const setupRole = require("./modelsService/roles");
 const setupUser = require("./modelsService/user");
 const setupVolunteer = require("./modelsService/volunteer");
 const bcrypt = require("bcryptjs");
@@ -59,14 +58,12 @@ const setupTables = async (config) => {
 
     const Donation = setupDonation(DonationModel, UserModel, ReportModel);
     const Report = setupReport(ReportModel, UserModel, DonationModel, VolunteerModel);
-    const Role = setupRole(RoleModel);
     const User = setupUser(UserModel, RoleModel);
     const Volunteer = setupVolunteer(VolunteerModel, UserModel, ReportModel);
 
     return {
         Donation,
         Report,
-        Role,
         User,
         Volunteer
     };
