@@ -211,12 +211,10 @@ describe("Test para volunterController", () => {
         const usuario = await User.findAll();
 
         const voluntario = {
-            quantity: 500,
             reportId: reporte[0].id,
             userId: usuario[0].id
         };
         const voluntario2 = {
-            quantity: 501,
             reportId: reporte[0].id,
             userId: usuario[0].id
         };
