@@ -14,7 +14,11 @@ function setupReport(ReportModel, UserModel, DonationModel, VolunteerModel) {
     }
 
     function findById(id) {
-        return ReportModel.findById(id);
+        return ReportModel.findOne({
+            where: {
+                id: id
+            }
+        });
     }
 
     function findAll() {
