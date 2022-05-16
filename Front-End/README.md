@@ -3,6 +3,13 @@
 Este proyecto consiste en el frontend de Oceanautas el cual está construido en VueJS y con estilos en CSS
 
 
+## Público objetivo
+
+
+## User Persona
+
+
+
 ## Wireframe del proyecto
 
 # Homepage
