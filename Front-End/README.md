@@ -24,6 +24,38 @@ Este proyecto consiste en el frontend de Oceanautas el cual está construido en 
 ![image](https://user-images.githubusercontent.com/99231889/168510006-994b1cd2-ded7-4561-8daf-bfef7e2dccd1.png)
 
 
+## Diagrama de funcionalidad
+
+
+
+
+
+## UI
+
+# User 
+
+![MicrosoftTeams-image (2)](https://user-images.githubusercontent.com/99231889/168512112-9c29e591-0c60-47bb-b03b-77b014b9b0b7.png)
+
+![MicrosoftTeams-image (3)](https://user-images.githubusercontent.com/99231889/168512139-f622c177-3055-42c4-a80b-c9f52857e97a.png)
+
+
+
+# Log in 
+
+![image](https://user-images.githubusercontent.com/99231889/168512341-c4a66b8a-1527-44bb-b06c-efcc50fb3be5.png)
+
+
+
+# Admin
+
+![image](https://user-images.githubusercontent.com/99231889/168512237-0ae3fd09-cc31-443b-b705-01eada2c7e0e.png)
+
+# Volunteer
+
+![image](https://user-images.githubusercontent.com/99231889/168512274-8479fb1c-b0d0-4374-b836-43fe292f108b.png)
+
+
+
 
 
 
