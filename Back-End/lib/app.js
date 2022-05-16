@@ -28,97 +28,97 @@ app.use("*", async(req, res, next) => {
 
 const port = 3000;
 
-app.get("/api/", (request, response) => {
+app.get("/", (request, response) => {
     response.json({
         message: "Oceanautas API -- Hackathon"
     });
 });
 
-app.post("/api/register", async (request, response) => {
+app.post("/register", async (request, response) => {
     const res = await User.createUser(request.body);
     response.status(200).json(res);   
 });
 
-app.post("/api/login", async (request, response) => {
+app.post("/login", async (request, response) => {
     const res = await User.signin(request.body);
     response.status(200).json(res);   
 });
 
 
-app.get("/api/usuarios", async (request, response) => {
+app.get("/usuarios", async (request, response) => {
     const res = await User.findAll();
     response.status(200).json(res);   
 });
 
-app.get("/api/organizaciones/", async (request, response) => {
+app.get("/organizaciones/", async (request, response) => {
     const res = await User.findAllOrganizations();
     response.status(200).json(res);   
 });
 
-app.get("/api/usuarios/:id", async (request, response) => {
+app.get("/usuarios/:id", async (request, response) => {
     const id = request.params.id;
     const usuario = await User.findById(id);
     response.status(200).json(usuario);   
 });
 
-app.post("/api/reportes", async (request, response) => {
+app.post("/reportes", async (request, response) => {
     console.log(request.body);
     const responseReport = await Report.createReport(request.body);
     response.status(200).json(responseReport);   
 });
 
-app.get("/api/reportes", async (request, response) => {
+app.get("/reportes", async (request, response) => {
     const res = await Report.findAll();
     response.status(200).json(res);   
 });
 
-app.get("/api/reportes/:id", async (request, response) => {
+app.get("/reportes/:id", async (request, response) => {
     const reporte = await Report.findById(request.params.id);
     response.status(200).json(reporte);   
 
 });
 
-app.post("/api/donaciones", async (request, response) => {
+app.post("/donaciones", async (request, response) => {
     const donativo = await Donation.createDonation(request.body);
     response.status(200).json(donativo);   
 });
 
-app.get("/api/donaciones", async (request, response) => {
+app.get("/donaciones", async (request, response) => {
     const donativo = await Donation.findAll();
     response.status(200).json(donativo);   
 });
 
-app.get("/api/donaciones/:id", async (request, response) => {
+app.get("/donaciones/:id", async (request, response) => {
     const donativo = await Donation.findById(request.params.id);
     response.status(200).json(donativo);   
 });
 
-app.get("/api/donaciones/reporte/:id", async (request, response) => {
+app.get("/donaciones/reporte/:id", async (request, response) => {
     const donativo = await Donation.findByReportId(request.params.id);
     response.status(200).json(donativo);   
 });
 
-app.get("/api/usuarios/donaciones/:id", async (request, response) => {
+app.get("/usuarios/donaciones/:id", async (request, response) => {
     const donativo = await Donation.findByUserId(request.params.id);
     response.status(200).json(donativo);   
 });
 
-app.post("/api/voluntarios", async (request, response) => {
+app.post("/voluntarios", async (request, response) => {
     const voluntario = await Volunteer.createVolunteer(request.body);
     response.status(200).json(voluntario);   
 });
 
-app.get("/api/voluntarios", async (request, response) => {
+app.get("/voluntarios", async (request, response) => {
     const voluntario = await Volunteer.findAll();
     response.status(200).json(voluntario);   
 });
 
-app.get("/api/usuarios/voluntario/:id", async (request, response) => {
+app.get("/usuarios/voluntario/:id", async (request, response) => {
     const voluntario = await Volunteer.findByUserId(request.params.id);
     response.status(200).json(voluntario);   
 });
 
-app.get("/api/usuarios/voluntarios/:id", async (request, response) => {
+app.get("/usuarios/voluntarios/:id", async (request, response) => {
     const voluntario = await Volunteer.findByReportId(request.params.id);
     response.status(200).json(voluntario);   
 });
