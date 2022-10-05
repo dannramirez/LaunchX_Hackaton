@@ -7,12 +7,12 @@ Este repo contiene una solución tecnologica para mantener conectados a las orga
 ## Back End
 
 - [Repo BackEnd](./Back-End/)
-- [Link de despliegue](https://oceanautas.org/api/)
+- [L̵i̵n̵k̵ ̵d̵e̵ ̵d̵e̵s̵p̵l̵i̵e̵g̵u̵e̵](https://oceanautas.org/api/)
 
 ## Front End
 
 - [Repo FrontEnd](./Front-End/)
-- [Link de despliegue](https://oceanautas.org/)
+- [L̵i̵n̵k̵ ̵d̵e̵ ̵d̵e̵s̵p̵l̵i̵e̵g̵u̵e̵](https://oceanautas.org/)
 
 ![picture 24](images/d168510854f41186e7c538d72ad2020565db788ce40a1a638cbb141aa67a3641.jpg)
 
